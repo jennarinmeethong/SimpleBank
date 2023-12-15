@@ -1,0 +1,6 @@
+@SimpleBank.Backend_HostAddress = http://localhost:5095
+
+GET {{SimpleBank.Backend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

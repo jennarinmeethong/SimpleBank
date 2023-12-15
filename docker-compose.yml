@@ -1,0 +1,24 @@
+# Please refer https://aka.ms/HTTPSinContainer on how to setup an https developer certificate for your ASP.NET Core service.
+
+version: '3.4'
+
+services:
+  SimpleBankBackend:
+    image: simplebankbackend
+    build:
+      context: .
+      dockerfile: src/Backend/Dockerfile
+    ports:
+      - 5001:5001
+  SimpleBankDatabase:
+    image: mysql:8.2.0
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: P@ssw0rd
+  DatabaseManager:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
